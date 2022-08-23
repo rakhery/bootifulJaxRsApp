@@ -1,6 +1,9 @@
 package com.example.bootifuljaxrs;
+import com.example.bootifuljaxrs.entities.Book;
 import com.example.bootifuljaxrs.entities.Customer;
+import com.example.bootifuljaxrs.repo.BookRepository;
 import com.example.bootifuljaxrs.repo.CustomerRepository;
+import org.apache.sling.commons.json.JSONObject;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,8 +17,13 @@ public class BootifulJaxRsApplication {
 
 	//Données d'initialisation
 	@Bean
-	ApplicationRunner data(CustomerRepository cr){
+	ApplicationRunner customer(CustomerRepository cr){
 		return args-> Stream.of("A","B","C").forEach(x->cr.save(new Customer(null,x)));
+	}
+	@Bean
+	ApplicationRunner book(BookRepository br){
+		return args-> Stream.of("Harry Potter","Java EE","Angular")
+				.forEach(x->br.save(new Book(null,x,"1-111111-11")));
 	}
 
 	public static void main(String[] args) {
@@ -24,5 +32,4 @@ public class BootifulJaxRsApplication {
 
 
 }
-//Activation de Jax-Rx
 
