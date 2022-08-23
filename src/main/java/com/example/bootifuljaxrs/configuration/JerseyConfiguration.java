@@ -1,5 +1,8 @@
-package com.example.bootifuljaxrs;
+package com.example.bootifuljaxrs.configuration;
 
+import com.example.bootifuljaxrs.api.CustomerResource;
+import com.example.bootifuljaxrs.exceptions.GenericExceptionMapper;
+import com.example.bootifuljaxrs.repo.CustomerRepository;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

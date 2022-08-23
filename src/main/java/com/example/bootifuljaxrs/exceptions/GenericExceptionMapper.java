@@ -1,4 +1,4 @@
-package com.example.bootifuljaxrs;
+package com.example.bootifuljaxrs.exceptions;
 
 import org.springframework.stereotype.Component;
 
@@ -7,6 +7,7 @@ import javax.ws.rs.ext.ExceptionMapper;
 
 //Création de Exception generique
 @Component
+public
 class GenericExceptionMapper implements ExceptionMapper<IllegalArgumentException> {
 
     @Override

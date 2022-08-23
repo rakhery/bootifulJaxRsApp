@@ -1,4 +1,4 @@
-package com.example.bootifuljaxrs;
+package com.example.bootifuljaxrs.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

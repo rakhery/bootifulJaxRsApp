@@ -1,6 +1,7 @@
-package com.example.bootifuljaxrs;
+package com.example.bootifuljaxrs.api;
 
-import org.springframework.stereotype.Component;
+import com.example.bootifuljaxrs.entities.Customer;
+import com.example.bootifuljaxrs.repo.CustomerRepository;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

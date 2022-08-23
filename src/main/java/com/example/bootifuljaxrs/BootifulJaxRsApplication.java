@@ -1,15 +1,11 @@
 package com.example.bootifuljaxrs;
-import org.glassfish.jersey.server.ResourceConfig;
+import com.example.bootifuljaxrs.entities.Customer;
+import com.example.bootifuljaxrs.repo.CustomerRepository;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.ext.ExceptionMapper;
 import java.util.stream.Stream;
 
 
