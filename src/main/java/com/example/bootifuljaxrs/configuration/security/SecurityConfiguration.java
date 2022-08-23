@@ -22,7 +22,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableWebSecurity
 public class SecurityConfiguration {
     private static UserDetails user(String usr,String ...roles){
-        return User.withUsername(usr).password("password").roles(roles).build();
+        return User.withUsername(usr).password("{noop}password").roles(roles).build();
     }
 
     @Bean
