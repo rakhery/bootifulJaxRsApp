@@ -1,9 +1,7 @@
 package com.example.bootifuljaxrs.api;
-
 import com.example.bootifuljaxrs.entities.Personne;
 import com.example.bootifuljaxrs.service.AnnuaireService;
 import org.springframework.stereotype.Component;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
