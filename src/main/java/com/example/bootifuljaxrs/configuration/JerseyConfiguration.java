@@ -9,25 +9,21 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.annotation.PostConstruct;
 import javax.ws.rs.ApplicationPath;
 
 @Configuration
 @ApplicationPath("/")
-class JerseyConfiguration {
-    @Bean
-    CustomerResource customerResource(CustomerRepository repository) {
-        return new CustomerResource(repository);
+class JerseyConfiguration extends ResourceConfig {
+    public JerseyConfiguration(){
+
     }
-    @Bean
-    BookContentResource bookResource(BookRepository repo) {
-        return new BookContentResource(repo);
-    }
-    //Injection de endpoint
-    @Bean
-    ResourceConfig config(CustomerRepository cr, GenericExceptionMapper exceptionMapper) {
-        ResourceConfig resourceConfig = new ResourceConfig();
-        resourceConfig.register(CustomerResource.class);
-        return resourceConfig;
-    }
+   @PostConstruct
+    public void setUp(){
+        register(BookContentResource.class);
+        register(GenericExceptionMapper.class);
+        register(CustomerResource.class);
+
+   }
 
 }

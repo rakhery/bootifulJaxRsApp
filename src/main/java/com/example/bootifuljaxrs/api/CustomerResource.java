@@ -2,6 +2,7 @@ package com.example.bootifuljaxrs.api;
 
 import com.example.bootifuljaxrs.entities.Customer;
 import com.example.bootifuljaxrs.repo.CustomerRepository;
+import org.springframework.stereotype.Component;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -10,6 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.Collection;
 
+@Component
 @Path("/customers")
 @Produces(MediaType.APPLICATION_JSON)
 public class CustomerResource {
