@@ -1,5 +1,6 @@
 package com.example.bootifuljaxrs.entities;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@JsonPropertyOrder({"isbn", "name"})
 @XmlRootElement(name = "book")
 public class Book {
     @Id
