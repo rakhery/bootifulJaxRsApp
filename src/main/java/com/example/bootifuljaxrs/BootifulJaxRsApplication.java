@@ -3,7 +3,6 @@ import com.example.bootifuljaxrs.entities.Book;
 import com.example.bootifuljaxrs.entities.Customer;
 import com.example.bootifuljaxrs.repo.BookRepository;
 import com.example.bootifuljaxrs.repo.CustomerRepository;
-import org.apache.sling.commons.json.JSONObject;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
