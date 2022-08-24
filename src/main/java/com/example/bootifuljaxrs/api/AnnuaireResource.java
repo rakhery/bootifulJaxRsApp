@@ -4,10 +4,12 @@ import com.example.bootifuljaxrs.service.AnnuaireService;
 import org.springframework.stereotype.Component;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.net.URI;
 import java.util.List;
 
 @Component
-@Path("/annuaire/personnes")
+@Path("/personnes")
 @Produces(MediaType.APPLICATION_JSON)
 public class AnnuaireResource {
     private final AnnuaireService annuaire;
@@ -26,31 +28,36 @@ public class AnnuaireResource {
     @POST()
     @Consumes({ MediaType.APPLICATION_JSON })
     @Produces({ MediaType.APPLICATION_JSON })
-    public void postPersonne(Personne newPersonne) {
-        annuaire.addPersonne(newPersonne);
+    public Response postPersonne(Personne personne)
+    {
+        annuaire.addPersonne(personne);
+        return Response.created(URI.create("/" +personne.getId())).build();
+
     }
 
     @Path("/{id}")
     @GET()
     @Produces({ MediaType.APPLICATION_JSON })
-    public Personne getPersonne(@PathParam("id") Long personneId) {
-        return annuaire.getPersonne(personneId);
+    public Personne getPersonne(@PathParam("id") Long id) {
+        return annuaire.getPersonne(id);
                // .orElseThrow(()->new IllegalArgumentException("Non trouvé #"+ personneId +"!"));
     }
 
     @Path("/{id}")
     @PUT()
     @Consumes({ MediaType.APPLICATION_JSON })
-    public void putPersonne(Personne personne){
-        annuaire.updatePersonne(personne);
+    public Response putPersonne(@PathParam("id") Long id, Personne personne){
+        annuaire.updatePersonne(id,personne);
+        return Response.noContent().build();
     }
 
 
     @Path("/{id}")
     @DELETE()
-    public void deletePersonnne(@PathParam("id") Long personneId){
-        Personne p=annuaire.getPersonne(personneId);
+    public Response deletePersonnne(@PathParam("id") Long id){
+        Personne p=annuaire.getPersonne(id);
         annuaire.deletePersonne(p);
+        return Response.ok().build();
 
     }
 }

@@ -1,13 +1,10 @@
 package com.example.bootifuljaxrs.service;
-
 import com.example.bootifuljaxrs.entities.Personne;
 import com.example.bootifuljaxrs.repo.PersonneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional
@@ -28,9 +25,13 @@ public class AnnuaireService {
     public Personne getPersonne(Long id) {
       return personneRepository.findById(id).orElseThrow(()->new IllegalArgumentException("Non trouvé #"+ id +"!"));
     }
-    public void updatePersonne(Personne personne) {
-        Personne p = personneRepository.findById(personne.getId())
-                .orElseThrow(()->new IllegalArgumentException("Non trouvé #"+ personne.getId() +"!"));
+    public void updatePersonne(Long id,Personne personne) {
+        Personne p = personneRepository.findById(id)
+                .orElseThrow(()->new IllegalArgumentException("Non trouvé #"+ id +"!"));
+        p.setId(id);
+        p.setNom(personne.getNom());
+        personneRepository.save(p);
+
     }
     public void deletePersonne(Personne personne) {
         personneRepository.delete(personne);
