@@ -1,4 +1,4 @@
-package com.example.bootifuljaxrs.flitre;
+package com.example.bootifuljaxrs.filter;
 
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
@@ -37,7 +37,7 @@ public class BridgingSecurityFilter implements ContainerRequestFilter {
 
         @Override
         public boolean isSecure() {
-            return uriInfo.getAbsolutePath().toString().toLowerCase().startsWith("https");
+            return uriInfo.getAbsolutePath().toString().toLowerCase().startsWith("http");
         }
 
         @Override

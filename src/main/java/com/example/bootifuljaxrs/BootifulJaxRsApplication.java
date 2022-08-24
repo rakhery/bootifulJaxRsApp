@@ -1,9 +1,10 @@
 package com.example.bootifuljaxrs;
 import com.example.bootifuljaxrs.entities.Book;
 import com.example.bootifuljaxrs.entities.Customer;
+import com.example.bootifuljaxrs.entities.Personne;
 import com.example.bootifuljaxrs.repo.BookRepository;
 import com.example.bootifuljaxrs.repo.CustomerRepository;
-import org.apache.sling.commons.json.JSONObject;
+import com.example.bootifuljaxrs.repo.PersonneRepository;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,6 +25,14 @@ public class BootifulJaxRsApplication {
 	ApplicationRunner book(BookRepository br){
 		return args-> Stream.of("Harry Potter","Java EE","Angular")
 				.forEach(x->br.save(new Book(null,x,"1-111111-11")));
+	}
+	@Bean
+	ApplicationRunner annuaire( PersonneRepository personne){
+		return args-> Stream.of("Bob Marley","Jimmy Hendrix","Rolling Stones")
+				.forEach(nom->{
+					Personne p=new Personne(null,nom);
+					personne.save(p);
+				});
 	}
 
 	public static void main(String[] args) {

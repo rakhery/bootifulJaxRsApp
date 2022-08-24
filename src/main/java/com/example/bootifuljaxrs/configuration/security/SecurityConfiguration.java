@@ -34,12 +34,17 @@ public class SecurityConfiguration {
     //In Spring Security 5.7.0-M2 we deprecated the WebSecurityConfigurerAdapter hmmm...
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-                .httpBasic()
+        http.headers().frameOptions().sameOrigin()
                 .and()
-                .authorizeRequests().antMatchers("/customers*").hasRole("ADMIN")
-                .anyRequest()
-                .authenticated();
+                .csrf().disable()
+                .antMatcher("/**")
+                .authorizeRequests().antMatchers("/h2-console/**")
+                .permitAll()
+                .and()
+                .formLogin().disable()
+                .authorizeRequests()
+                .antMatchers("/customers*").hasRole("ADMIN")
+                .anyRequest().permitAll();
         return http.build();
     }
 

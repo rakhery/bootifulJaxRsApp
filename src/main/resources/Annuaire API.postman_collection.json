@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "ef3465df-720e-445d-ba2c-b83d8fd9a04f",
+		"name": "Annuaire API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5990675"
+	},
+	"item": [
+		{
+			"name": "Lister Annuaire",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Poster Une Personne",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nom\": \"Elon Musk\"\r\n}"
+				},
+				"url": {
+					"raw": "{{API-URL}}",
+					"host": [
+						"{{API-URL}}"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Trouver une personne",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API-URL}}/4",
+					"host": [
+						"{{API-URL}}"
+					],
+					"path": [
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update annuaire",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":4,\r\n    \"nom\": \"Bill Gates \"\r\n}"
+				},
+				"url": {
+					"raw": "{{API-URL}}/4",
+					"host": [
+						"{{API-URL}}"
+					],
+					"path": [
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Une personne",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":4,\r\n    \"nom\": \"Bill Gates \"\r\n}"
+				},
+				"url": {
+					"raw": "{{API-URL}}/4",
+					"host": [
+						"{{API-URL}}"
+					],
+					"path": [
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API-URL",
+			"value": "http://localhost:8080/personnes",
+			"type": "string"
+		}
+	]
+}
