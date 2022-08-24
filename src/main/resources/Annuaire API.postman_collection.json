@@ -63,6 +63,23 @@
 			"response": []
 		},
 		{
+			"name": "Declencher Exception",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API-URL}}/10",
+					"host": [
+						"{{API-URL}}"
+					],
+					"path": [
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Update annuaire",
 			"request": {
 				"method": "PUT",

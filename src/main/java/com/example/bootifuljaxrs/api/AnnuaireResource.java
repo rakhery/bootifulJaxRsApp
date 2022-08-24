@@ -1,6 +1,6 @@
 package com.example.bootifuljaxrs.api;
 import com.example.bootifuljaxrs.entities.Personne;
-import com.example.bootifuljaxrs.service.AnnuaireService;
+import com.example.bootifuljaxrs.DAO.AnnuaireDAO;
 import org.springframework.stereotype.Component;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -12,9 +12,9 @@ import java.util.List;
 @Path("/personnes")
 @Produces(MediaType.APPLICATION_JSON)
 public class AnnuaireResource {
-    private final AnnuaireService annuaire;
+    private final AnnuaireDAO annuaire;
 
-    public AnnuaireResource(AnnuaireService annuaire) {
+    public AnnuaireResource(AnnuaireDAO annuaire) {
         this.annuaire = annuaire;
     }
 

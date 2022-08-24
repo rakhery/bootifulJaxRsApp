@@ -1,4 +1,4 @@
-package com.example.bootifuljaxrs.service;
+package com.example.bootifuljaxrs.DAO;
 import com.example.bootifuljaxrs.entities.Personne;
 import com.example.bootifuljaxrs.repo.PersonneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +8,12 @@ import java.util.List;
 
 @Service
 @Transactional
-public class AnnuaireService {
+public class AnnuaireDAO {
 
     private  PersonneRepository personneRepository;
 
     @Autowired
-    public AnnuaireService(PersonneRepository personneRepository) {
+    public AnnuaireDAO(PersonneRepository personneRepository) {
         this.personneRepository = personneRepository;
     }
     public void addPersonne(Personne newPersonne) {
@@ -34,6 +34,7 @@ public class AnnuaireService {
 
     }
     public void deletePersonne(Personne personne) {
+
         personneRepository.delete(personne);
     }
 
